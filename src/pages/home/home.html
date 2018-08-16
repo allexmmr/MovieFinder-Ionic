@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Ionic :: Movie Finder
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12 col-sm12 col-md-6 col-lg-4 col-xl-2 *ngFor="let movie of popularMovies | async">
+        <ion-card>
+          <ion-item>
+            <h2>{{movie.title}}</h2>
+            <p>{{movie.release_date | date: "MMMM yyyy"}}</p>
+          </ion-item>
+          <img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{movie.poster_path}}">
+          <ion-card-content>
+            <p style="height: 75px; max-height: 75px;">
+              {{movie.overview}}
+            </p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
